@@ -24,6 +24,8 @@ class SiswaController extends BaseController
     public function show($id){
         $r = (new SiswaModel())->where('id',$id)->first();
         if($r == null)throw PageNotFoundException::forPageNotFound();
+
+        return $this->response->setJSON($r);
 }
 public function store(){
     $pm = new SiswaModel();

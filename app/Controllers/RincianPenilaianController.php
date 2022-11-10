@@ -25,6 +25,8 @@ class RincianPenilaianController extends BaseController
         $r = (new RincianPenilaianModel())->where('id',$id)->first();
         
         if($r == null)throw PageNotFoundException::forPageNotFound();
+
+        return $this->response->setJSON($r);
 }
 public function store(){
     $pm = new RincianPenilaianModel();
