@@ -33,20 +33,31 @@
                 <div class="modal-body">
                     <form id="formBagian" method="post" action="<?=base_url('bagian')?>">
                     <input type="hidden" name="id"/>
+                    <input type="hidden" name="_method" />
                     <div class="mb-3">
                         <label class="form-label">Nama</label>
-                        <input type="text" name="nama" class="form-control"/>
-
+                    <select name="nama" class="form-control">
+                        <option value="Guru">Guru</option>
+                        <option value="TU">Tu</option>
+                        <option value="BK">Bk</option>
+                    </select>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Fungsi</label>
-                        <input type="text" name="fungsi" class="form-control"/>
-                        
+                    <select name="fungsi" class="form-control">
+                        <option value="Satuan Pendidik Sekolah">Guru</option>
+                        <option value="Penata Administrasi Sekolah">Tu</option>
+                        <option value="Konselor Siswa">Bk</option>
+                    </select>
                     </div>
-                    <div class="mb-3">
+
+                     <div class="mb-3">
                         <label class="form-label">Tugas Pokok</label>
-                        <input type="text" name="tugas_pokok" class="form-control"/>
-                        
+                    <select name="tugas_pokok" class="form-control">
+                        <option value="Menyiapkan Bahan Ajar, Mendidik Siswa dan Melakukan Penilaian">Guru</option>
+                        <option value="Administrasi Kegiatan Kependidikan, Mempersiapkan Jadwal, Membantu Guru">Tu</option>
+                        <option value="Memberikan Konsultasi, Motivasi, dan Pengawasan Kepada Peserta Didik">Bk</option>
+                    </select>
                     </div>
                 </form>
                 </div>
@@ -80,6 +91,31 @@
         $('button#btn-tambah').on('click', function(){
             $('#modalForm').modal('show');
             $('form#formBagian').trigger('reset');
+            $('input[name=_method]').val('');
+        });
+        
+        $('table#table-bagian').on('click', '.btn-edit', function(){
+            let id =$(this).data('id');
+            let baseurl = "<?=base_url()?>";
+            $.get(`${baseurl}/bagian/${id}`).done((e)=>{
+                $('input[name=id]').val(e.id);
+                $('input[name=nama]').val(e.nama);
+                $('input[name=fungsi]').val(e.fungsi);
+                $('input[name=tugas_pokok]').val(e.tugas_pokok);
+                $('#modalForm').modal('show');
+                $('input[name=_method]').val('patch');
+            });
+        });
+        $('table#table-bagian').on('click', '.btn-hapus', function(){
+            let konfirmasi = confirm('Data pegawai akan dihapus, ingin melanjutkan?');
+
+            if(konfirmasi === true){
+                let _id = $(this).data('id');
+                let baseurl = "<?=base_url()?>";
+                $.post(`${baseurl}/bagian`, {id:_id, _method:'delete'}).done(function(e){
+                    $('table#table-bagian').DataTable().ajax.reload();
+                });
+            }
         });
         $('table#table-bagian').DataTable({
             processing: true,
