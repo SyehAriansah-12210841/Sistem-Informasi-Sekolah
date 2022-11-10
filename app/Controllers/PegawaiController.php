@@ -98,6 +98,7 @@ class PegawaiController extends BaseController
             'nip' =>$this->request->getVar('nip'),
             'nama_depan' =>$this->request->getVar('nama_depan'),
             'nama_belakang' =>$this->request->getVar('nama_belakang'),
+            'gelar_depan' =>$this->request->getVar('gelar_depan'),
             'gelar_belakang' =>$this->request->getVar('gelar_belakang'),
             'gender' =>$this->request->getVar('gender'),
             'no_telpon' =>$this->request->getVar('no_telpon'),
@@ -122,9 +123,10 @@ class PegawaiController extends BaseController
             throw PageNotFoundException::forPageNotFound();
 
         $hasil = $pm ->update($id, [
-            'nama' => $this->request->getVar('nip'),
+            'nip' => $this->request->getVar('nip'),
             'nama_depan' =>$this->request->getVar('nama_depan'),
             'nama_belakang' =>$this->request->getVar('nama_belakang'),
+            'gelar_depan' =>$this->request->getVar('gelar_depan'),
             'gelar_belakang' =>$this->request->getVar('gelar_belakang'),
             'gender' =>$this->request->getVar('gender'),
             'no_telpon' =>$this->request->getVar('no_telpon'),

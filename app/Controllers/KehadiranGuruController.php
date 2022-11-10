@@ -24,6 +24,8 @@ class KehadiranGuruController extends BaseController
     public function show($id){
         $r = (new KehadiranGuruModel())->where('id',$id)->first();
         if($r == null)throw PageNotFoundException::forPageNotFound();
+
+        return $this->response->setJSON($r);
 }
 public function store(){
     $pm = new KehadiranGuruModel();

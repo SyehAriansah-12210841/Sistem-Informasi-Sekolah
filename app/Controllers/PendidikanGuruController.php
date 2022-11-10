@@ -24,6 +24,8 @@ class PendidikanGuruController extends BaseController
     public function show($id){
         $r = (new PendidikanGuruModel())->where('id',$id)->first();
         if($r == null)throw PageNotFoundException::forPageNotFound();
+
+        return $this->response->setJSON($r);
 }
 public function store(){
     $pm = new PendidikanGuruModel();
