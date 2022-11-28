@@ -47,8 +47,9 @@ $routes->group('login', function(RouteCollection $routes){
     $routes->patch('/', 'PegawaiController::lupaPassword');
 
 });
+$routes->get('/logout', 'PegawaiController::logout');
 
-$routes->group('Pegawai', function(RouteCollection $routes){
+$routes->group('Pegawai', ['filter' => 'otentikasi'], function(RouteCollection $routes){
     $routes->get('/', 'PegawaiController::index');
     $routes->post('/', 'PegawaiController::store');
     $routes->patch('/', 'PegawaiController::update');
