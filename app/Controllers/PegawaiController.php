@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Controllers;
 
 use Agoenxz21\Datatables\Datatable;
@@ -28,8 +27,7 @@ class PegawaiController extends BaseController
                         ->setStatusCode(403);
         }
         $this->session->set('Pegawai',$Pegawai);
-        return $this->response->setJSON(['message' =>"Selamat datang {$Pegawai['nama_depan']} "])
-                    ->setStatusCode(200);
+         return redirect()->to(base_url('Pegawai'));
     }
     public function viewLogin(){
         return view('login');
@@ -93,8 +91,7 @@ class PegawaiController extends BaseController
     public function store(){
         $pm = new PegawaiModel();
         $sandi = $this->request->getVar('sandi');
-
-        $id = $pm->insert([
+$id = $pm->insert([
             'nip' =>$this->request->getVar('nip'),
             'nama_depan' =>$this->request->getVar('nama_depan'),
             'nama_belakang' =>$this->request->getVar('nama_belakang'),

@@ -6,6 +6,9 @@
     <link href="//cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" rel="stylesheet">
     <script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
     <div class="container">
+    <li class="nav-item">
+    <a class="nav-link" href="<?= base_url(); ?>/logout">Logout</a>
+    </li>
         <button class="float-end btn btn-sm btn-primary" id="btn-tambah">Tambah</button>
 
 <table id='table-rincianpenilaian' class="datatable table table-bordered border-primary">
