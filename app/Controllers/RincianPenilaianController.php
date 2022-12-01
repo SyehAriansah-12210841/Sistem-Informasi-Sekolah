@@ -11,7 +11,7 @@ class RincianPenilaianController extends BaseController
 {
     public function index()
     {
-        return view('rincianpenilaian/table');
+        return view('backend/rincianpenilaian/table');
     }
     public function all(){
         $pm = new RincianPenilaianModel();

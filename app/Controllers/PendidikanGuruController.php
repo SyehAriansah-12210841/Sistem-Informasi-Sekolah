@@ -11,7 +11,7 @@ class PendidikanGuruController extends BaseController
 {
     public function index()
     {
-        return view('pendidikanguru/table');
+        return view('backend/pendidikanguru/table');
     }
     public function all(){
         $pm = new PendidikanGuruModel();

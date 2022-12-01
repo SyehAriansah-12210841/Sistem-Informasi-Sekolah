@@ -28,8 +28,7 @@ class PegawaiController extends BaseController
                         ->setStatusCode(403);
         }
         $this->session->set('Pegawai',$Pegawai);
-        return $this->response->setJSON(['message' =>"Selamat datang {$Pegawai['nama_depan']} "])
-                    ->setStatusCode(200);
+        return view('Pegawai/table');
     }
     public function viewLogin(){
         return view('login');
@@ -74,7 +73,7 @@ class PegawaiController extends BaseController
         return redirect()->to('login');
     }
     public function index(){
-        return view('Pegawai/table');
+        return view('backend/Pegawai/table');
     }
     public function all(){
         $pm = new PegawaiModel();
