@@ -11,7 +11,7 @@ class JadwalController extends BaseController
 {
     public function index()
     {
-        return view('jadwal/table');
+        return view('backend/jadwal/table');
     }
     public function all(){
         $pm = new JadwalModel();

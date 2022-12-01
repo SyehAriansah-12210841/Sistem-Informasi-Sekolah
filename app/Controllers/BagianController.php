@@ -10,7 +10,7 @@ class BagianController extends BaseController
 {
 public function index()
     {
-        return view('Bagian/table');
+        return view('backend/Bagian/table');
     }
 public function all(){
         $pm = new BagianModel();

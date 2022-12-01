@@ -11,7 +11,7 @@ class KehadiranSiswaController extends BaseController
 {
     public function index()
     {
-        return view('kehadiransiswa/table');
+        return view('backend/kehadiransiswa/table');
     }
     public function all(){
         $pm = new KehadiranSiswaModel();

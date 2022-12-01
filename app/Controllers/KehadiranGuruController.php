@@ -11,7 +11,7 @@ class KehadiranGuruController extends BaseController
 {
     public function index()
     {
-        return view('kehadiranguru/table');
+        return view('backend/kehadiranguru/table');
     }
     public function all(){
         $pm = new KehadiranGuruModel();

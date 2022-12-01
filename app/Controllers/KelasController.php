@@ -11,7 +11,7 @@ class KelasController extends BaseController
 {
     public function index()
     {
-        return view('kelas/table');
+        return view('backend/kelas/table');
     }
     public function all(){
         $pm = new KelasModel();

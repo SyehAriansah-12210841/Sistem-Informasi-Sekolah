@@ -10,7 +10,7 @@ class TahunAjaranController extends BaseController
 {
     public function index()
     {
-        return view('TahunAjaran/table');
+        return view('backend/TahunAjaran/table');
     }
     public function all(){
         $pm = new TahunAjarModel();
