@@ -28,7 +28,7 @@ class PegawaiController extends BaseController
                         ->setStatusCode(403);
         }
         $this->session->set('Pegawai',$Pegawai);
-        return view('Pegawai/table');
+        return view('Pegawai');
     }
     public function viewLogin(){
         return view('login');
