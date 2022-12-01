@@ -58,7 +58,7 @@ $routes->group('Pegawai', ['filter' => 'otentikasi'], function(RouteCollection $
     $routes->get('all', 'PegawaiController::all');
 });
 
-$routes->group('bagian', function(RouteCollection $routes){
+$routes->group('bagian', ['filter' => 'otentikasi'], function(RouteCollection $routes){
     $routes->get('/', 'BagianController::index');
     $routes->post('/', 'BagianController::store');
     $routes->patch('/', 'BagianController::update');
@@ -67,7 +67,7 @@ $routes->group('bagian', function(RouteCollection $routes){
     $routes->get('all', 'BagianController::all');
 });
 
-$routes->group('tahun', function(RouteCollection $routes){
+$routes->group('tahun',['filter' => 'otentikasi'], function(RouteCollection $routes){
     $routes->get('/', 'TahunAjaranController::index');
     $routes->post('/', 'TahunAjaranController::store');
     $routes->patch('/', 'TahunAjaranController::update');
@@ -76,7 +76,7 @@ $routes->group('tahun', function(RouteCollection $routes){
     $routes->get('all', 'TahunAjaranController::all');
 });
 
-$routes->group('pendidikanguru', function(RouteCollection $routes){
+$routes->group('pendidikanguru',['filter' => 'otentikasi'], function(RouteCollection $routes){
     $routes->get('/', 'PendidikanGuruController::index');
     $routes->post('/', 'PendidikanGuruController::store');
     $routes->patch('/', 'PendidikanGuruController::update');
@@ -85,7 +85,7 @@ $routes->group('pendidikanguru', function(RouteCollection $routes){
     $routes->get('all', 'PendidikanGuruController::all');
 });
 
-$routes->group('kelas', function(RouteCollection $routes){
+$routes->group('kelas',['filter' => 'otentikasi'], function(RouteCollection $routes){
     $routes->get('/', 'KelasController::index');
     $routes->post('/', 'KelasController::store');
     $routes->patch('/', 'KelasController::update');
@@ -94,7 +94,7 @@ $routes->group('kelas', function(RouteCollection $routes){
     $routes->get('all', 'KelasController::all');
 });
 
-$routes->group('mapel', function(RouteCollection $routes){
+$routes->group('mapel',['filter' => 'otentikasi'], function(RouteCollection $routes){
     $routes->get('/', 'MapelController::index');
     $routes->post('/', 'MapelController::store');
     $routes->patch('/', 'MapelController::update');
@@ -103,7 +103,7 @@ $routes->group('mapel', function(RouteCollection $routes){
     $routes->get('all', 'MapelController::all');
 });
 
-$routes->group('jadwal', function(RouteCollection $routes){
+$routes->group('jadwal',['filter' => 'otentikasi'], function(RouteCollection $routes){
     $routes->get('/', 'JadwalController::index');
     $routes->post('/', 'JadwalController::store');
     $routes->patch('/', 'JadwalController::update');
@@ -112,7 +112,7 @@ $routes->group('jadwal', function(RouteCollection $routes){
     $routes->get('all', 'JadwalController::all');
 });
 
-$routes->group('kehadiranguru', function(RouteCollection $routes){
+$routes->group('kehadiranguru',['filter' => 'otentikasi'], function(RouteCollection $routes){
     $routes->get('/', 'KehadiranGuruController::index');
     $routes->post('/', 'KehadiranGuruController::store');
     $routes->patch('/', 'KehadiranGuruController::update');
@@ -121,7 +121,7 @@ $routes->group('kehadiranguru', function(RouteCollection $routes){
     $routes->get('all', 'KehadiranGuruController::all');
 });
 
-$routes->group('siswa', function(RouteCollection $routes){
+$routes->group('siswa',['filter' => 'otentikasi'], function(RouteCollection $routes){
     $routes->get('/', 'SiswaController::index');
     $routes->post('/', 'SiswaController::store');
     $routes->patch('/', 'SiswaController::update');
@@ -130,7 +130,7 @@ $routes->group('siswa', function(RouteCollection $routes){
     $routes->get('all', 'SiswaController::all');
 });
 
-$routes->group('kelassiswa', function(RouteCollection $routes){
+$routes->group('kelassiswa',['filter' => 'otentikasi'], function(RouteCollection $routes){
     $routes->get('/', 'KelasSiswaController::index');
     $routes->post('/', 'KelasSiswaController::store');
     $routes->patch('/', 'KelasSiswaController::update');
@@ -139,7 +139,7 @@ $routes->group('kelassiswa', function(RouteCollection $routes){
     $routes->get('all', 'KelasSiswaController::all');
 });
 
-$routes->group('kehadiransiswa', function(RouteCollection $routes){
+$routes->group('kehadiransiswa',['filter' => 'otentikasi'], function(RouteCollection $routes){
     $routes->get('/', 'KehadiranSiswaController::index');
     $routes->post('/', 'KehadiranSiswaController::store');
     $routes->patch('/', 'KehadiranSiswaController::update');
@@ -148,7 +148,7 @@ $routes->group('kehadiransiswa', function(RouteCollection $routes){
     $routes->get('all', 'KehadiranSiswaController::all');
 });
 
-$routes->group('penilaian', function(RouteCollection $routes){
+$routes->group('penilaian',['filter' => 'otentikasi'], function(RouteCollection $routes){
     $routes->get('/', 'PenilaianController::index');
     $routes->post('/', 'PenilaianController::store');
     $routes->patch('/', 'PenilaianController::update');
@@ -157,7 +157,7 @@ $routes->group('penilaian', function(RouteCollection $routes){
     $routes->get('all', 'PenilaianController::all');
 });
 
-$routes->group('rincianpenilaian', function(RouteCollection $routes){
+$routes->group('rincianpenilaian',['filter' => 'otentikasi'], function(RouteCollection $routes){
     $routes->get('/', 'RincianPenilaianController::index');
     $routes->post('/', 'RincianPenilaianController::store');
     $routes->patch('/', 'RincianPenilaianController::update');
