@@ -11,7 +11,7 @@ class PenilaianController extends BaseController
 {
     public function index()
     {
-        return view('penilaian/table');
+        return view('backend/penilaian/table');
     }
     public function all(){
         $pm = new PenilaianModel();

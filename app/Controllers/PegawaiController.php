@@ -3,7 +3,10 @@ namespace App\Controllers;
 
 use Agoenxz21\Datatables\Datatable;
 use App\Controllers\BaseController;
+use App\Models\BagianModel;
 use App\Models\PegawaiModel;
+use App\Models\PendidikanGuruModel;
+use App\Models\KehadiranGuruModel;
 use CodeIgniter\Email\Email;
 use CodeIgniter\Exceptions\PageNotFoundException;
 use Config\Email as ConfigEmail;
@@ -72,13 +75,18 @@ class PegawaiController extends BaseController
         return redirect()->to('login');
     }
     public function index(){
-        return view('Pegawai/table');
+        return view('backend/Pegawai/table',[
+            'bagian' => (new BagianModel())->findAll()
+        ]);
     }
     public function all(){
-        $pm = new PegawaiModel();
-        $pm->select('id,nip,nama_depan,nama_belakang,gelar_depan,gelar_belakang,gender,no_telpon,no_wa,email,bagian_id,alamat,kota,tgl_lahir,tempat_lahir,foto,sandi,token_reset,created_at,updated_at');
+        // $pm = new PegawaiModel();
+        // $pm->select('id,nip,nama_depan,nama_belakang,gelar_depan,gelar_belakang,gender,no_telpon,no_wa,email,bagian_id,alamat,kota,tgl_lahir,tempat_lahir,foto,sandi,token_reset,created_at,updated_at');
 
-        return(new Datatable($pm))
+        // return(new Datatable($pm))
+        //     ->setFieldFilter(['id,nip,nama_depan,nama_belakang,gelar_depan,gelar_belakang,gender,no_telpon,no_wa,email,bagian_id,alamat,kota,tgl_lahir,tempat_lahir,foto,sandi,token_reset,created_at,updated_at'])
+        //     ->draw();
+        return(New Datatable(PegawaiModel::view()))
             ->setFieldFilter(['id,nip,nama_depan,nama_belakang,gelar_depan,gelar_belakang,gender,no_telpon,no_wa,email,bagian_id,alamat,kota,tgl_lahir,tempat_lahir,foto,sandi,token_reset,created_at,updated_at'])
             ->draw();
     }

@@ -11,7 +11,7 @@ class KelasSiswaController extends BaseController
 {
     public function index()
     {
-        return view('kelassiswa/table');
+        return view('backend/kelassiswa/table');
     }
     public function all(){
         $pm = new KelasSiswaModel();

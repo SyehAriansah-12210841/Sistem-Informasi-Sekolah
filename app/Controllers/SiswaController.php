@@ -11,7 +11,7 @@ class SiswaController extends BaseController
 {
     public function index()
     {
-        return view('siswa/table');
+        return view('backend/siswa/table');
     }
     public function all(){
         $pm = new SiswaModel();
