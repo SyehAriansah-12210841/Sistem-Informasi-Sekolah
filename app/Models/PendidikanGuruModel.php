@@ -39,4 +39,13 @@ class PendidikanGuruModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+    public static function view(){
+        $view = (new PendidikanGuruModel())
+                    ->select("pendidikan_guru.*, Pegawai.nip as Pegawai ")
+                    ->join('Pegawai','pendidikan_guru.pegawai_id = Pegawai.id','left')
+                    ->builder();
+                    $r = db_connect()->newQuery()->fromSubquery($view, 'tbl');
+                    $r->table = 'tbl';
+                    return $r;
+    }
 }

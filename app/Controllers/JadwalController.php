@@ -5,21 +5,32 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use Agoenxz21\Datatables\Datatable;
 use App\Models\JadwalModel;
+use App\Models\PegawaiModel;
+use App\Models\KelasModel;
+use App\Models\MapelModel;
 use CodeIgniter\Exceptions\PageNotFoundException;
 
 class JadwalController extends BaseController
 {
     public function index()
     {
-        return view('backend/jadwal/table');
+        return view('backend/jadwal/table',[
+            'Pegawai' => (new PegawaiModel())->findAll(),
+            'kelas'  => (new KelasModel())->findAll(),
+            'mapel'  => (new MapelModel())->findAll(),
+
+        ]);    
     }
     public function all(){
-        $pm = new JadwalModel();
-        $pm ->select('id,hari,kelas_id,mapel_id,jam_mulai,jam_selesai,pegawai_id');
+        // $pm = new JadwalModel();
+        // $pm ->select('id,hari,kelas_id,mapel_id,jam_mulai,jam_selesai,pegawai_id');
 
-        return (new Datatable($pm))
-            ->setFieldFilter(['id','hari','kelas_id','mapel_id','jam_mulai','jam_selesai','pegawai_id'])
-            ->draw();
+        // return (new Datatable($pm))
+        //     ->setFieldFilter(['id','hari','kelas_id','mapel_id','jam_mulai','jam_selesai','pegawai_id'])
+        //     ->draw();
+        return(New Datatable(JadwalModel::view()))
+        ->setFieldFilter(['id','hari','kelas_id','mapel_id','jam_mulai','jam_selesai','pegawai_id'])
+        ->draw();
     }
     public function show($id){
         $r = (new JadwalModel())->where('id',$id)->first();

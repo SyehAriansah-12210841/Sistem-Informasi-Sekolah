@@ -5,8 +5,6 @@ use Agoenxz21\Datatables\Datatable;
 use App\Controllers\BaseController;
 use App\Models\BagianModel;
 use App\Models\PegawaiModel;
-use App\Models\PendidikanGuruModel;
-use App\Models\KehadiranGuruModel;
 use CodeIgniter\Email\Email;
 use CodeIgniter\Exceptions\PageNotFoundException;
 use Config\Email as ConfigEmail;

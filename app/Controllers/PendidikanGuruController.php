@@ -5,21 +5,27 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use Agoenxz21\Datatables\Datatable;
 use App\Models\PendidikanGuruModel;
+use App\Models\PegawaiModel;
 use CodeIgniter\Exceptions\PageNotFoundException;
 
 class PendidikanGuruController extends BaseController
 {
     public function index()
     {
-        return view('backend/pendidikanguru/table');
+        return view('backend/PendidikanGuru/table',[
+            'Pegawai' => (new PegawaiModel())->findAll()
+        ]);
     }
     public function all(){
-        $pm = new PendidikanGuruModel();
-        $pm ->select('id,pegawai_id,jenjang,jurusan,asal_sekolah,tahun_lulus,nilai_ijasah');
+        // $pm = new PendidikanGuruModel();
+        // $pm ->select('id,pegawai_id,jenjang,jurusan,asal_sekolah,tahun_lulus,nilai_ijasah');
 
-        return (new Datatable($pm))
-            ->setFieldFilter(['id','pegawai_id','jenjang','jurusan','asal_sekolah','tahun_lulus','nilai_ijasah'])
-            ->draw();
+        // return (new Datatable($pm))
+        //     ->setFieldFilter(['id','pegawai_id','jenjang','jurusan','asal_sekolah','tahun_lulus','nilai_ijasah'])
+        //     ->draw();
+        return(New Datatable(PendidikanGuruModel::view()))
+        ->setFieldFilter(['id','pegawai_id','jenjang','jurusan','asal_sekolah','tahun_lulus','nilai_ijasah'])
+        ->draw();
     }
     public function show($id){
         $r = (new PendidikanGuruModel())->where('id',$id)->first();

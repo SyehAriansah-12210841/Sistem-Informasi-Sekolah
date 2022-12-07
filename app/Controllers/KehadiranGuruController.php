@@ -5,21 +5,29 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use Agoenxz21\Datatables\Datatable;
 use App\Models\KehadiranGuruModel;
+use App\Models\PegawaiModel;
+use App\Models\JadwalModel;
 use CodeIgniter\Exceptions\PageNotFoundException;
 
 class KehadiranGuruController extends BaseController
 {
     public function index()
     {
-        return view('backend/kehadiranguru/table');
+        return view('backend/kehadiranguru/table',[
+            'Pegawai' => (new PegawaiModel())->findAll(),
+            'jadwal'  => (new JadwalModel())->findAll(),
+        ]);    
     }
     public function all(){
-        $pm = new KehadiranGuruModel();
-        $pm ->select('id,waktu_masuk,waktu_keluar,pertemuan,pegawai_id,jadwal_id,berita_acara');
+    //     $pm = new KehadiranGuruModel();
+    //     $pm ->select('id,waktu_masuk,waktu_keluar,pertemuan,pegawai_id,jadwal_id,berita_acara');
 
-        return (new Datatable($pm))
-            ->setFieldFilter(['id','waktu_masuk','waktu_keluar','pertemuan','pegawai_id','jadwal_id','berita_acara'])
-            ->draw();
+    //     return (new Datatable($pm))
+    //         ->setFieldFilter(['id','waktu_masuk','waktu_keluar','pertemuan','pegawai_id','jadwal_id','berita_acara'])
+    //         ->draw();
+    return(New Datatable(KehadiranGuruModel::view()))
+        ->setFieldFilter(['id','waktu_masuk','waktu_keluar','pertemuan','pegawai_id','jadwal_id','berita_acara'])
+        ->draw();
     }
     public function show($id){
         $r = (new KehadiranGuruModel())->where('id',$id)->first();

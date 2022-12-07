@@ -5,21 +5,26 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use Agoenxz21\Datatables\Datatable;
 use App\Models\SiswaModel;
+use App\Models\KelasModel;
 use CodeIgniter\Exceptions\PageNotFoundException;
 
 class SiswaController extends BaseController
 {
     public function index()
     {
-        return view('backend/siswa/table');
-    }
+        return view('backend/siswa/table',[
+            'kelas' => (new KelasModel())->findAll(),
+        ]);        }
     public function all(){
-        $pm = new SiswaModel();
-        $pm ->select('id,nisn,nis,status_masuk,thn_masuk,nama_depan,nama_belakang,nik,no_kk,gender,tgl_lahir,tempat_lahir,alamat,kota,skr_kelas_id,no_telp_rumah,no_hp_ibu,no_hp_ayah,nm_ayah,nm_ibu,nm_wali,foto,created_at,updated_at,deleted_at');
+        // $pm = new SiswaModel();
+        // $pm ->select('id,nisn,nis,status_masuk,thn_masuk,nama_depan,nama_belakang,nik,no_kk,gender,tgl_lahir,tempat_lahir,alamat,kota,skr_kelas_id,no_telp_rumah,no_hp_ibu,no_hp_ayah,nm_ayah,nm_ibu,nm_wali,foto,created_at,updated_at,deleted_at');
 
-        return (new Datatable($pm))
-            ->setFieldFilter(['id','nisn','nis','status_masuk','thn_masuk','nama_depan','nama_belakang','nik','no_kk','gender','tgl_lahir','tempat_lahir','alamat','kota','skr_kelas_id','no_telp_rumah','no_hp_ibu','no_hp_ayah','nm_ayah','nm_ibu','nm_wali','foto','created_at','updated_at','deleted_at'])
-            ->draw();
+        // return (new Datatable($pm))
+        //     ->setFieldFilter(['id','nisn','nis','status_masuk','thn_masuk','nama_depan','nama_belakang','nik','no_kk','gender','tgl_lahir','tempat_lahir','alamat','kota','skr_kelas_id','no_telp_rumah','no_hp_ibu','no_hp_ayah','nm_ayah','nm_ibu','nm_wali','foto','created_at','updated_at','deleted_at'])
+        //     ->draw();
+        return(New Datatable(SiswaModel::view()))
+        ->setFieldFilter(['id','nisn','nis','status_masuk','thn_masuk','nama_depan','nama_belakang','nik','no_kk','gender','tgl_lahir','tempat_lahir','alamat','kota','skr_kelas_id','no_telp_rumah','no_hp_ibu','no_hp_ayah','nm_ayah','nm_ibu','nm_wali','foto','created_at','updated_at','deleted_at'])
+        ->draw();
     }
     public function show($id){
         $r = (new SiswaModel())->where('id',$id)->first();

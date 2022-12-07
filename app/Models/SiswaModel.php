@@ -39,4 +39,13 @@ class SiswaModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+    public static function view(){
+        $view = (new SiswaModel())
+                    ->select("siswa.*, kelas.tingkat as kelas ")
+                    ->join('kelas','siswa.skr_kelas_id = kelas.id','left')
+                    ->builder();
+                    $r = db_connect()->newQuery()->fromSubquery($view, 'tbl');
+                    $r->table = 'tbl';
+                    return $r;
+    }
 }

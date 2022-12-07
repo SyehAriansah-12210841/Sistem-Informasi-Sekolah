@@ -5,21 +5,29 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use Agoenxz21\Datatables\Datatable;
 use App\Models\PenilaianModel;
+use App\Models\MapelModel;
+use App\Models\SiswaModel;
 use CodeIgniter\Exceptions\PageNotFoundException;
 
 class PenilaianController extends BaseController
 {
     public function index()
     {
-        return view('backend/penilaian/table');
+        return view('backend/penilaian/table',[
+            'mapel' => (new MapelModel())->findAll(),
+            'siswa'  => (new SiswaModel())->findAll(),
+        ]);    
     }
     public function all(){
-        $pm = new PenilaianModel();
-        $pm ->select('id,mapel_id,siswa_id,total_kehadiran,deskripsi_nilai');
+        // $pm = new PenilaianModel();
+        // $pm ->select('id,mapel_id,siswa_id,total_kehadiran,deskripsi_nilai');
 
-        return (new Datatable($pm))
-            ->setFieldFilter(['id','mapel_id','siswa_id','total_kehadiran','deskripsi_nilai'])
-            ->draw();
+        // return (new Datatable($pm))
+        //     ->setFieldFilter(['id','mapel_id','siswa_id','total_kehadiran','deskripsi_nilai'])
+        //     ->draw();
+        return(New Datatable(PenilaianModel::view()))
+        ->setFieldFilter(['id','mapel_id','siswa_id','total_kehadiran','deskripsi_nilai'])
+        ->draw();
     }
     public function show($id){
         $r = (new PenilaianModel())->where('id',$id)->first();

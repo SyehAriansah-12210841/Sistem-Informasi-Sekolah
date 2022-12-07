@@ -121,8 +121,12 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Skr Kelas Id</label>
-                        <input type="number" name="skr_kelas_id" class="form-control"/>
-                        
+                        <select name="skr_kelas_id" class="form-control">
+                            <option>Pilih Skr Kelas Id</option>
+                            <?php foreach ($kelas as $k) :?>
+                                <option value='<?=$k['id']?>'><?=$k['id']?></option>
+                             <?php endforeach;?>
+                        </select>                        
                     </div>
                     <div class="mb-3">
                         <label class="form-label">No Telpon Rumah</label>

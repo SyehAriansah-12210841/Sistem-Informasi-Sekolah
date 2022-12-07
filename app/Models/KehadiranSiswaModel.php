@@ -39,4 +39,14 @@ class KehadiranSiswaModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+    public static function view(){
+        $view = (new KehadiranSiswaModel())
+                    ->select("kehadiran_siswa.*, kehadiran_guru.pertemuan as kehadiran_guru, siswa.nisn ")
+                    ->join('kehadiran_guru','kehadiran_siswa.kehadiran_guru_id = kehadiran_guru.id','left')
+                    ->join('siswa','kehadiran_siswa.siswa_id = siswa.id','left')
+                    ->builder();
+                    $r = db_connect()->newQuery()->fromSubquery($view, 'tbl');
+                    $r->table = 'tbl';
+                    return $r;
+    }
 }

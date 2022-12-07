@@ -5,21 +5,27 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use Agoenxz21\Datatables\Datatable;
 use App\Models\RincianPenilaianModel;
+use App\Models\PenilaianModel;
 use CodeIgniter\Exceptions\PageNotFoundException;
 
 class RincianPenilaianController extends BaseController
 {
     public function index()
     {
-        return view('backend/rincianpenilaian/table');
+        return view('backend/rincianpenilaian/table',[
+            'penilaian' => (new PenilaianModel())->findAll(),
+        ]);    
     }
     public function all(){
-        $pm = new RincianPenilaianModel();
-        $pm ->select('id,penilaian_id,nama_nilai,nilai_angka,nilai_deskripsi');
+        // $pm = new RincianPenilaianModel();
+        // $pm ->select('id,penilaian_id,nama_nilai,nilai_angka,nilai_deskripsi');
 
-        return (new Datatable($pm))
-            ->setFieldFilter(['id','penilaian_id','nama_nilai','nilai_angka','nilai_deskripsi'])
-            ->draw();
+        // return (new Datatable($pm))
+        //     ->setFieldFilter(['id','penilaian_id','nama_nilai','nilai_angka','nilai_deskripsi'])
+        //     ->draw();
+        return(New Datatable(RincianPenilaianModel::view()))
+        ->setFieldFilter(['id','penilaian_id','nama_nilai','nilai_angka','nilai_deskripsi'])
+        ->draw();
     }
     public function show($id){
         $r = (new RincianPenilaianModel())->where('id',$id)->first();
