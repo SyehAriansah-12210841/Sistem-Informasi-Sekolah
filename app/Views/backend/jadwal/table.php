@@ -47,13 +47,22 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Kelas Id</label>
-                        <input type="text" name="kelas_id" class="form-control"/>
+                        <select name="kelas_id" class="form-control">
+                            <option>Pilih Kelas id</option>
+                            <?php foreach ($kelas as $k) :?>
+                                <option value='<?=$k['id']?>'><?=$k['id']?></option>
+                             <?php endforeach;?>
+                        </select>
                         
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Mapel Id</label>
-                        <input type="text" name="mapel_id" class="form-control"/>
-                        
+                        <select name="mapel_id" class="form-control">
+                            <option>Pilih Mapel id</option>
+                            <?php foreach ($mapel as $k) :?>
+                                <option value='<?=$k['id']?>'><?=$k['id']?></option>
+                             <?php endforeach;?>
+                        </select>                        
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Jam Mulai</label>
@@ -67,8 +76,12 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Pegawai Id</label>
-                        <input type="text" name="pegawai_id" class="form-control"/>
-
+                        <select name="pegawai_id" class="form-control">
+                            <option>Pilih Pegawai id</option>
+                            <?php foreach ($Pegawai as $k) :?>
+                                <option value='<?=$k['id']?>'><?=$k['id']?></option>
+                             <?php endforeach;?>
+                        </select>
                     </div>
                 </form>
                 </div>

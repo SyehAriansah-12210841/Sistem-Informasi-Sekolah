@@ -32,13 +32,21 @@
                     <input type="hidden" name="_method" />
                     <div class="mb-3">
                         <label class="form-label">Kehadiran Guru Id</label>
-                        <input type="text" name="kehadiran_guru_id" class="form-control"/>
-
+                        <select name="kehadiran_guru_id" class="form-control">
+                            <option>Pilih Kehadiran Guru Id</option>
+                            <?php foreach ($kehadiran_guru as $k) :?>
+                                <option value='<?=$k['id']?>'><?=$k['id']?></option>
+                             <?php endforeach;?>
+                        </select>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Siswa Id</label>
-                        <input type="text" name="siswa_id" class="form-control"/>
-                        
+                        <select name="siswa_id" class="form-control">
+                            <option>Pilih Siswa Id</option>
+                            <?php foreach ($siswa as $k) :?>
+                                <option value='<?=$k['id']?>'><?=$k['id']?></option>
+                             <?php endforeach;?>
+                        </select>                        
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Status Hadir</label>

@@ -5,21 +5,29 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use Agoenxz21\Datatables\Datatable;
 use App\Models\KelasModel;
+use App\Models\PegawaiModel;
+use App\Models\TahunAjarModel;
 use CodeIgniter\Exceptions\PageNotFoundException;
 
 class KelasController extends BaseController
 {
     public function index()
     {
-        return view('backend/kelas/table');
+        return view('backend/Kelas/table',[
+            'Pegawai' => (new PegawaiModel())->findAll(),
+            'tahun_ajar' =>(new TahunAjarModel())->findAll()
+        ]);
     }
     public function all(){
-        $pm = new KelasModel();
-        $pm ->select('id,tingkat,kelas,pegawai_id,tahun_ajaran_id');
+        // $pm = new KelasModel();
+        // $pm ->select('id,tingkat,kelas,pegawai_id,tahun_ajaran_id');
 
-        return (new Datatable($pm))
-            ->setFieldFilter(['id','tingkat','kelas','pegawai_id','tahun_ajaran_id'])
-            ->draw();
+        // return (new Datatable($pm))
+        //     ->setFieldFilter(['id','tingkat','kelas','pegawai_id','tahun_ajaran_id'])
+        //     ->draw();
+        return(New Datatable(KelasModel::view()))
+        ->setFieldFilter(['id','tingkat','kelas','pegawai_id','tahun_ajaran_id'])
+        ->draw();
     }
     public function show($id){
         $r = (new KelasModel())->where('id',$id)->first();

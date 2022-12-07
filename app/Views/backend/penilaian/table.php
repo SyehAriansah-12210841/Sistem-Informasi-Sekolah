@@ -1,5 +1,7 @@
 <?= $this->extend('backend/template') ?>
    <?= $this->section('content') ?>
+   <div class="container">
+
     <li class="nav-item">
     <a class="nav-link" href="<?= base_url(); ?>/logout">Logout</a>
     </li>
@@ -32,13 +34,21 @@
                     <input type="hidden" name="_method" />
                     <div class="mb-3">
                         <label class="form-label">Mapel Id</label>
-                        <input type="text" name="mapel_id" class="form-control"/>
-
+                        <select name="mapel_id" class="form-control">
+                            <option>Pilih Mapel id</option>
+                            <?php foreach ($mapel as $k) :?>
+                                <option value='<?=$k['id']?>'><?=$k['id']?></option>
+                             <?php endforeach;?>
+                        </select>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Siswa Id</label>
-                        <input type="text" name="siswa_id" class="form-control"/>
-                        
+                        <select name="siswa_id" class="form-control">
+                            <option>Pilih Siswa id</option>
+                            <?php foreach ($siswa as $k) :?>
+                                <option value='<?=$k['id']?>'><?=$k['id']?></option>
+                             <?php endforeach;?>
+                        </select>                        
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Total Nilai</label>

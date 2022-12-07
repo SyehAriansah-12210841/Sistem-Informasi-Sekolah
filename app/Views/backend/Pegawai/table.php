@@ -98,7 +98,7 @@
                         <select name="bagian_id" class="form-control">
                             <option>Pilih Bagian</option>
                             <?php foreach ($bagian as $k) :?>
-                                <option value='<?=$k['id']?>'><?=$k['nama']?></option>
+                                <option value='<?=$k['id']?>'><?=$k['id']?></option>
                              <?php endforeach;?>
                         </select>
 

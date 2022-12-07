@@ -39,4 +39,13 @@ class RincianPenilaianModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+    public static function view(){
+        $view = (new RincianPenilaianModel())
+                    ->select("rincian_penilaian.*, penilaian.deskripsi_nilai as penilaian")
+                    ->join('penilaian','rincian_penilaian.penilaian_id = penilaian.id','left')
+                    ->builder();
+                    $r = db_connect()->newQuery()->fromSubquery($view, 'tbl');
+                    $r->table = 'tbl';
+                    return $r;
+    }
 }

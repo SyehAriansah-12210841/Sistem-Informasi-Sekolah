@@ -50,13 +50,23 @@
                     </select>
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Pegawai Id</label>
-                        <input type="text" name="pegawai_id" class="form-control"/>
+                    <label class="form-label">Pegawai Id</label>
+                        <select name="pegawai_id" class="form-control">
+                            <option>Pilih Pegawai</option>
+                            <?php foreach ($Pegawai as $k) :?>
+                                <option value='<?=$k['id']?>'><?=$k['id']?></option>
+                             <?php endforeach;?>
+                        </select>
                         
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">Tahun Ajaran Id</label>
-                        <input type="text" name="tahun_ajaran_id" class="form-control"/>
+                    <label class="form-label">Tahun Ajaran Id</label>
+                        <select name="tahun_ajaran_id" class="form-control">
+                            <option>Pilih Tahun Ajaran Id</option>
+                            <?php foreach ($tahun_ajar as $k) :?>
+                                <option value='<?=$k['id']?>'><?=$k['id']?></option>
+                             <?php endforeach;?>
+                        </select>
                         
                     </div>
                 </form>

@@ -34,8 +34,13 @@
                     <input type="hidden" name="id"/>
                     <input type="hidden" name="_method" />
                     <div class="mb-3">
-                        <label class="form-label">Pegawai Id</label>
-                        <input type="text" name="pegawai_id" class="form-control"/>
+                    <label class="form-label">Pegawai Id</label>
+                        <select name="pegawai_id" class="form-control">
+                            <option>Pilih Pegawai Id</option>
+                            <?php foreach ($Pegawai as $k) :?>
+                                <option value='<?=$k['id']?>'><?=$k['id']?></option>
+                             <?php endforeach;?>
+                        </select>
 
                     </div>
                     <div class="mb-3">

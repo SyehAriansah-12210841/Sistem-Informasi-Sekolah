@@ -34,8 +34,12 @@
                     <input type="hidden" name="_method" />
                     <div class="mb-3">
                         <label class="form-label">Penilaian Id</label>
-                        <input type="text" name="penilaian_id" class="form-control"/>
-
+                        <select name="penilaian_id" class="form-control">
+                            <option>Pilih Penilaian id</option>
+                            <?php foreach ($penilaian as $k) :?>
+                                <option value='<?=$k['id']?>'><?=$k['id']?></option>
+                             <?php endforeach;?>
+                        </select>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Nama Nilai</label>
