@@ -30,7 +30,6 @@ class LoginFilter implements FilterInterface
             return redirect()->to(site_url('login'));
         }
     }
-    
 
     /**
      * Allows After filters to inspect and modify the response
