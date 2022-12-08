@@ -53,7 +53,7 @@ class PegawaiController extends BaseController
         $email ->setFrom('12210778@ac.id', 'Sistem Informasi Sekolah');
         $email ->setTo($Pegawai['email']);
         $email ->setSubject('Reset Sandi Pengguna');
-        $email ->setMessage("hallo {$Pegawai['nama']} telah meminta reset baru. reset baru kamu adalah <b>$sandibaru</b>");
+        $email ->setMessage("hallo {$Pegawai['nama_depan']} telah meminta reset baru. reset baru kamu adalah <b>$sandibaru</b>");
         $r = $email->send();
 
         if($r == true){
